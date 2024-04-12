@@ -59,14 +59,19 @@ pipeline {
         always {
             script {
                     versionPackage = bat returnStdout: true, script: "@node -p \"require('./package.json').version\""
-                }
-            echo "Job Finished. Version: ${versionPackage}, Environment: ${environment}"
+            }
         }
         success {
-            echo "Job Succeeded. Version: ${versionPackage}, Environment: ${environment}"
+            echo 
+            "Job Succeeded! 
+            Version: ${versionPackage} 
+            Environment: ${environment}"
         }
         failure {
-            echo "Job Failed. Version: ${versionPackage}, Environment: ${environment}"
+            echo 
+            "Job Failed! 
+            Version: ${versionPackage} 
+            Environment: ${environment}"
         }
     }
 
