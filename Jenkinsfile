@@ -5,9 +5,10 @@ pipeline {
 
         stage('Switching Git Branch for Build variable') {
             steps {
-                def environment = "development"
+                
                 script {
                 // Use Node.js and npm installed on the Jenkins agent
+                    def environment = "development"
                     switch(GIT_BRANCH) {
                         case "master":
                             environment = "production"
