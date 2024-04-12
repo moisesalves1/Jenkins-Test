@@ -56,7 +56,9 @@ pipeline {
 
         stage('Version Getter'){
             steps {
-                def version = bat returnStatus: true, script: "node -p \"require('./package.json').version\""
+                script{
+                    def version = bat returnStatus: true, script: "node -p \"require('./package.json').version\""
+                }
             }
         }
     }
