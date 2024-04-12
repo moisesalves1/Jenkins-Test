@@ -10,7 +10,7 @@ pipeline {
                     case "develop":
                         result = "development"
                         break
-                    case "master",:
+                    case "master":
                         result = "production"
                         break
                     case "staging":
