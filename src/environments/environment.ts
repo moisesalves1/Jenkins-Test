@@ -1,5 +1,7 @@
+import packageInfo from '../../package.json'
+
 export const environment = {
     production: false,
     env: 'development',
-    version : '1.0.1'
+    version : packageInfo.version
 }

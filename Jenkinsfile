@@ -28,8 +28,29 @@ pipeline {
 
         stage('Build Angular App') {
             steps {
+                script {
+                // Use Node.js and npm installed on the Jenkins agent
+                    switch(GIT_BRANCH) {
+                        case "develop":
+                            environment = "development"
+                            break
+                        case "master":
+                            environment = "production"
+                            break
+                        case "staging":
+                            environment = "staging"
+                            break
+                    }
+                }
                 // Build the Angular app
-                bat 'npm run build'
+                bat "npm run -- ng build --configuration=${environment}"
+            }
+        }
+
+        stage('Deploy Angular App') {
+            steps {
+                // Build the Angular app
+                bat "xcopy dist\\jenkins-test\\browser\\* C:\\inetpub\\wwwroot\\${GIT_BRANCH} /e /y"
             }
         }
     }
