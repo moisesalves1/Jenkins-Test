@@ -6,7 +6,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Use Node.js and npm installed on the Jenkins agent
-                sh 'npm install'
+                bat 'npm install'
                 
             }
         }
@@ -15,21 +15,21 @@ pipeline {
         stage('Linting') {
             steps {
                 // Build the Angular app
-                sh 'npm run lint'
+                bat 'npm run lint'
             }
         }
 
         stage('Testing') {
             steps {
                 // Build the Angular app
-                sh 'npm run test'
+                bat 'npm run test'
             }
         }
 
         stage('Build Angular App') {
             steps {
                 // Build the Angular app
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
     }
