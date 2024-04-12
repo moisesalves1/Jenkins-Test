@@ -2,27 +2,6 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Switching Git Branch for Build variable') {
-            steps {
-                script {
-                // Use Node.js and npm installed on the Jenkins agent
-                    switch(GIT_BRANCH) {
-                        case "develop":
-                            result = "development"
-                            break
-                        case "master":
-                            result = "production"
-                            break
-                        case "staging":
-                            result = "staging"
-                            break
-                    }
-                }
-                echo result
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 // Use Node.js and npm installed on the Jenkins agent
@@ -48,6 +27,20 @@ pipeline {
 
         stage('Build Angular App') {
             steps {
+                script {
+                // Use Node.js and npm installed on the Jenkins agent
+                    switch(GIT_BRANCH) {
+                        case "develop":
+                            result = "development"
+                            break
+                        case "master":
+                            result = "production"
+                            break
+                        case "staging":
+                            result = "staging"
+                            break
+                    }
+                }
                 // Build the Angular app
                 bat 'npm run -- ng build --configuration=${result}'
             }
