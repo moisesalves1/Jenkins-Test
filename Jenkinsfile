@@ -53,18 +53,13 @@ pipeline {
                 bat "xcopy dist\\jenkins-test\\browser\\* C:\\inetpub\\wwwroot\\${GIT_BRANCH} /e /y"
             }
         }
-
-        stage('Version Getter'){
-            steps {
-                script{
-                    version = bat returnStatus: true, script: "node -p \"require('./package.json').version.toString()\""
-                }
-            }
-        }
     }
 
     post {
         always {
+            script {
+                    version = bat returnStatus: true, script: "node -p \"require('./package.json').version.toString()\""
+                }
             echo 'Job Finished'
         }
         success {
