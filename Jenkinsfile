@@ -36,7 +36,7 @@ pipeline {
         stage('Deploy Angular App') {
             steps {
                 // Build the Angular app
-                bat 'xcopy dist\\jenkins-test\\* C:\\inetpub\\wwwroot\\develop /e /y'
+                bat 'xcopy dist\\jenkins-test\\browser\\* C:\\inetpub\\wwwroot\\develop /e /y'
             }
         }
     }
