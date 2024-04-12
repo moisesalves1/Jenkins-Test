@@ -63,7 +63,7 @@ pipeline {
         }
         success {
             echo "Job Succeeded!"
-            emailext body: "Version released: ${versionPackage} on ${environment} environment", subject: "[Jenkins] ${env.JOB_NAME} - Build# ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}", to: 'moises.alves@atp.com.br,cc:moisesalves1@gmail.com'
+            emailext body: "Version released: ${versionPackage} on ${environment} environment", subject: "[Jenkins] ${env.JOB_NAME} - Build# ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}", to: 'moises.alves@atp.com.br'
         }
         failure {
             echo "Job Failed!"
