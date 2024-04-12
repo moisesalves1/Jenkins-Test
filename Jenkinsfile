@@ -58,7 +58,7 @@ pipeline {
     post {
         always {
             script {
-                    versionPackage = bat returnStdout: true, script: "node -p \"require('./package.json').version\""
+                    versionPackage = bat returnStdout: true, script: "@node -p \"require('./package.json').version\""
                 }
             echo "Job Finished. Version: ${versionPackage}, Environment: ${environment}"
         }
