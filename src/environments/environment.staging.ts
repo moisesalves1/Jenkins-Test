@@ -1,5 +1,7 @@
+import { version } from '../../package.json'
+
 export const environment = {
     production: false,
     env: 'staging',
-    version : '1.0.0'
+    version : version
 }
