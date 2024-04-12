@@ -6,7 +6,18 @@ pipeline {
         stage('Echo Git Branch') {
             steps {
                 // Use Node.js and npm installed on the Jenkins agent
-                echo GIT_BRANCH
+                switch(GIT_BRANCH) {
+                    case "develop":
+                        result = "development"
+                        break
+                    case "master",:
+                        result = "production"
+                        break
+                    case "staging":
+                        result = "staging"
+                        break
+                }
+                echo result
                 
             }
         }
