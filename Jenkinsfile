@@ -6,9 +6,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Use Node.js and npm installed on the Jenkins agent
-                sh 'node --version'
-                sh 'cd jenkins-test'
-                sh  'npm install'
+                sh 'npm install'
                 
             }
         }
