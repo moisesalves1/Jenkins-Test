@@ -22,7 +22,7 @@ pipeline {
         stage('Testing') {
             steps {
                 // Build the Angular app
-                bat 'npm run test --watch=false'
+                bat 'npm run jenkinstest'
             }
         }
 
