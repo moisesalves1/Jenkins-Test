@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "jenkinstest": "ng test --watch=false",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "version": "echo $npm_package_version"
   },
   "private": true,
   "dependencies": {
