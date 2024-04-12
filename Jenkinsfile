@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage('Echo Git Branch') {
+        stage('Switching Git Branch for Build variable') {
             steps {
                 script {
                 // Use Node.js and npm installed on the Jenkins agent
@@ -49,7 +49,7 @@ pipeline {
         stage('Build Angular App') {
             steps {
                 // Build the Angular app
-                bat 'npm run build'
+                bat 'npm run -- ng build --configuration=${result}'
             }
         }
 
