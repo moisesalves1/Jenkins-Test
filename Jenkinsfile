@@ -62,16 +62,14 @@ pipeline {
             }
         }
         success {
-            echo 
-            "Job Succeeded! 
-            Version: ${versionPackage} 
-            Environment: ${environment}"
+            echo "Job Succeeded!"
         }
         failure {
-            echo 
-            "Job Failed! 
-            Version: ${versionPackage} 
-            Environment: ${environment}"
+            echo "Job Failed!"
+        }
+        cleanup {
+            echo "Version: ${versionPackage}"
+            echo "Environment: ${environment}"
         }
     }
 
