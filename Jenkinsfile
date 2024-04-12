@@ -3,6 +3,14 @@ pipeline {
 
     stages {
 
+        stage('Echo Git Branch') {
+            steps {
+                // Use Node.js and npm installed on the Jenkins agent
+                echo GIT_BRANCH
+                
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 // Use Node.js and npm installed on the Jenkins agent
