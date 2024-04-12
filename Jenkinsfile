@@ -32,6 +32,13 @@ pipeline {
                 bat 'npm run build'
             }
         }
+
+        stage('Deploy Angular App') {
+            steps {
+                // Build the Angular app
+                bat 'copy dist\jenkins-test\* C:\inetpub\wwwroot\develop /y'
+            }
+        }
     }
 
 } 
