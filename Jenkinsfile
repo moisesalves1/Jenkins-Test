@@ -48,9 +48,23 @@ pipeline {
         }
 
         stage('Deploy Angular App') {
+            script {
+                // Use Node.js and npm installed on the Jenkins agent
+                    switch(GIT_BRANCH) {
+                        case "develop":
+                            deploy = "development"
+                            break
+                        case "master":
+                            deploy = "production"
+                            break
+                        case "staging":
+                            deploy = "staging"
+                            break
+                    }
+                }
             steps {
                 // Build the Angular app
-                bat 'xcopy dist\\jenkins-test\\browser\\* C:\\inetpub\\wwwroot\\develop /e /y'
+                bat "xcopy dist\\jenkins-test\\browser\\* C:\\inetpub\\wwwroot\\${GIT_BRANCH} /e /y"
             }
         }
     }
