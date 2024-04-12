@@ -13,4 +13,5 @@ import { environment } from '../environments/environment';
 export class AppComponent {
   title = 'jenkins-test';
   env = environment.env;
+  version = environment.version;
 }
